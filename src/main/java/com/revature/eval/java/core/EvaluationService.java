@@ -1,7 +1,10 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EvaluationService {
 
@@ -15,7 +18,26 @@ public class EvaluationService {
 	 */
 	public String acronym(String phrase) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		String tmpPhrase = phrase;
+		String acronymTLA ="";
+		//Go through the string, if we find space or - we take the next word in a new variable
+		
+		acronymTLA += tmpPhrase.toUpperCase().charAt(0);
+		
+		 for(int i=1; i <= tmpPhrase.length() -1 ; i++)
+		 {
+			 if (tmpPhrase.charAt(i-1 ) == ' ' || tmpPhrase.charAt(i-1 ) == '-') {
+				 acronymTLA += tmpPhrase.toUpperCase().charAt(i);
+			}
+			 
+			 
+		 }
+		
+		 System.out.println("Acronym: "+acronymTLA+" for "+tmpPhrase);
+	
+		
+		
+		return acronymTLA;
 	}
 
 	/**
@@ -35,8 +57,70 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		String phrase = string;
+		phrase = phrase.toUpperCase();	
+		int score =0;
+		
+		for (int i = 0; i < phrase.length(); i++) {
+			
+			switch (phrase.charAt(i)) {
+			case 'A':
+			case 'E':
+			case 'I':
+			case 'O':
+			case 'U':
+			case 'L':
+			case 'N':
+			case 'R':
+			case 'S':
+			case 'T':
+			score +=1;
+			break;
+			
+			case 'D':
+			case 'G':
+			score +=2;
+			break;
+			
+			case 'B':
+			case 'C':
+			case 'M':
+			case 'P':
+			score += 3;
+			break;
+			
+			case 'F':
+			case 'H':
+			case 'V':
+			case 'W':
+			case 'Y':
+			score += 4;
+			break;
+			
+			case 'K':
+			score += 5;
+			break;
+			
+			case 'J':
+			case 'X':
+			score += 8;
+			break;
+			
+			case 'Q':
+			case 'Z':
+			score +=10;
+			break;
+		
+			default:
+			break;
+			}
+			
+		}	
+		
+		System.out.println("Score: "+score);
+		return score;
 	}
+	
 
 	/**
 	 * 3. Clean up user-entered phone numbers so that they can be sent SMS messages.
@@ -71,7 +155,25 @@ public class EvaluationService {
 	 */
 	public String cleanPhoneNumber(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		
+		// \\D matches only digits 
+		String newPhone = string.replaceAll("\\D+", "");;
+		
+		
+		if (newPhone.length() <= 10) {
+			
+			if (newPhone.length() == 10) {
+				System.out.println("Valid number: "+newPhone);
+			} else {
+				
+				System.err.println("Invalid input with no numeric" + string);
+			}
+			
+		} else {
+			System.err.println("Invalid more than 10 numbers "+newPhone);
+		}
+		
+		return newPhone;
 	}
 
 	/**
