@@ -1,10 +1,9 @@
 package com.revature.eval.java.core;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class EvaluationService {
 
@@ -186,9 +185,51 @@ public class EvaluationService {
 	 * @return
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		//We will use a hasMap to store each word as the key and their occurrence as the value 
+		//split the string by spaces
+		String [] word;
+		//= string.split(",\n");
+		
+		//if we receive ,\n we split the string
+		if (string.contains(",\n")) {
+			word = string.split(",\n");
+		//if we receive , we split the string
+		} else if (string.contains(",")){
+
+			word = string.split(",");
+			
+		//otherwise we split the string when we find space
+		}else {
+			word = string.split(" ");
+		}
+		
+		Map<String, Integer> wordOccurrence = new HashMap<>();
+		Integer count=0;
+		//Loop the array
+		for (int i = 0; i < word.length; i++) {
+			//get the element from the map, the first time should be null as we did not add the elements to the map yet
+			count = wordOccurrence.get(word[i]);
+			//Check if it already exist, I will not exist the first time
+			if (wordOccurrence.get(word[i]) ==  null) {
+				
+				//if it does not exist, we set the count as 1
+				wordOccurrence.put(word[i], 1);
+					
+			} else {
+				//if already exist, increment the count and add it in the map with put
+				count++;
+				wordOccurrence.put(word[i], count);
+			}			
+		}
+		
+		
+	System.out.println(wordOccurrence);
+		
+		
+		return wordOccurrence;
 	}
+	
 
 	/**
 	 * 5. Implement a binary search algorithm.
