@@ -360,7 +360,7 @@ public class EvaluationService {
 				return false;
 			}
 				*/
-		int n = input;
+		
 	    List<Integer> listOfDigits = new ArrayList<Integer>();
 
 	    // to find digit and putting in list
@@ -372,10 +372,16 @@ public class EvaluationService {
 	    }
 
 	    System.out.println(listOfDigits	);
-	    Long sum = 0L;
-	    for (Integer integer : listOfDigits)
-	        sum += (Long) Math.round(Math.pow(integer, listOfDigits.size()));
-	    return sum.intValue() == n ? true : false;
+	    int sum = 0;
+	    for (Integer integer : listOfDigits) 
+	        //sum += (Long) Math.round(Math.pow(integer, listOfDigits.size()));
+	    	sum += Math.pow(integer, listOfDigits.size());
+	    
+	    if (sum == input) {
+			return true;
+		} else {
+			return false;
+		}
 		
 	    
 		//return false;
