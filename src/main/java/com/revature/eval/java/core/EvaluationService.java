@@ -1,7 +1,7 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -339,14 +339,25 @@ public class EvaluationService {
 	 */
 	public boolean isArmstrongNumber(int input) {
 		
-		int tmpInput=0;
-		int cube=0;
-		int cubeSum=0;
+		int n = input;
+	    List<Integer> lst = new ArrayList<Integer>();
+
+	    // to find digit and putting in list
+	    while (input > 0) {
+	        lst.add(input % 10);
+	        input = input / 10;
+	    }
+
+	    System.out.println(lst);
+	    Long sum = 0L;
+	    for (Integer integer : lst)
+	        sum += (Long) Math.round(Math.pow(integer, lst.size()));
+	    return sum.intValue() == n ? true : false;
 		
-		tmpInput = input;
+	    
+		//return false;
 		
-			
-		return false;
+						
 	}
 
 	/**
