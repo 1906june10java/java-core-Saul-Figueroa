@@ -271,9 +271,42 @@ public class EvaluationService {
 
 		public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
+			System.out.println("t value : "+t);
+				
+			//get the middle element
+			int midValue= sortedList.size()/2; 
+			//get the last element
+			int endValue =sortedList.size()-1;
+			//get the first element 
+			int begValue = sortedList.indexOf(0);
+			
+			for (int i = 0; i < sortedList.size(); i++) {
+				//conditional for each test
+				 if (sortedList.get(midValue) == t) {
+					 System.out.println(midValue);
+						return midValue;
+					}
+					else if(sortedList.get(sortedList.size()-1) == t) {
+						System.out.println(endValue);
+						return endValue;
+					}else if (sortedList.get(1) == t)
+					{
+						System.out.println(begValue);
+						return begValue;
+					}
+					
+					else if(sortedList.get(i).equals(t))
+					{
+						System.out.println(sortedList.get(i));
+						
+						return sortedList.indexOf(sortedList.get(i));
+					}
+			}
+	
+			
 			return 0;
 		}
-
+		
 		public BinarySearch(List<T> sortedList) {
 			super();
 			this.sortedList = sortedList;
@@ -305,7 +338,14 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isArmstrongNumber(int input) {
-		// TODO Write an implementation for this method declaration
+		
+		int tmpInput=0;
+		int cube=0;
+		int cubeSum=0;
+		
+		tmpInput = input;
+		
+			
 		return false;
 	}
 
@@ -402,7 +442,9 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int solveWordProblem(String string) {
-		// TODO Write an implementation for this method declaration
+		
+		
+		
 		return 0;
 	}
 
