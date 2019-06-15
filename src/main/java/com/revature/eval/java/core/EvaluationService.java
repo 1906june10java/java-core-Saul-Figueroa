@@ -338,20 +338,43 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isArmstrongNumber(int input) {
+		/* This works for 2 and 3 numbers, fail with 1 and 4
+		 * 	int number = input;
+		int cubeSum = 0;
+		int one;
 		
+		
+		while (number > 0) {
+			
+			one=number % 10;
+			cubeSum = cubeSum + one*one*one;
+			number = number/10;
+			
+		}
+		
+			if (input == cubeSum) {
+				System.out.println("It is an Armstrong number");
+				return true;
+			} else {
+				System.out.println("It is not an Armstrong number");
+				return false;
+			}
+				*/
 		int n = input;
-	    List<Integer> lst = new ArrayList<Integer>();
+	    List<Integer> listOfDigits = new ArrayList<Integer>();
 
 	    // to find digit and putting in list
 	    while (input > 0) {
-	        lst.add(input % 10);
+	    	 
+	    	System.out.println("actual number "+input % 10);
+	        listOfDigits.add(input % 10);
 	        input = input / 10;
 	    }
 
-	    System.out.println(lst);
+	    System.out.println(listOfDigits	);
 	    Long sum = 0L;
-	    for (Integer integer : lst)
-	        sum += (Long) Math.round(Math.pow(integer, lst.size()));
+	    for (Integer integer : listOfDigits)
+	        sum += (Long) Math.round(Math.pow(integer, listOfDigits.size()));
 	    return sum.intValue() == n ? true : false;
 		
 	    
