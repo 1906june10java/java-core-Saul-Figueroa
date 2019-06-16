@@ -156,7 +156,7 @@ public class EvaluationService {
 		// TODO Write an implementation for this method declaration
 		
 		// \\D matches only digits 
-		String newPhone = string.replaceAll("\\D+", "");;
+		String newPhone = string.replaceAll("\\D+", "");
 		
 		
 		if (newPhone.length() <= 10) {
@@ -504,6 +504,59 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int solveWordProblem(String string) {
+		//Split the string and use the index
+		int operation=0;
+		int n1,n2;
+		String removing;
+		String [] array = string.split(" ");
+		
+		if (string.contains("plus")) {
+			
+			removing= array[4].replace("?", "");
+			//Converting from string to int
+			n1 = Integer.parseInt(array[2]);
+			n2 = Integer.parseInt(removing);
+			
+			operation=(n1)+(n2);
+			System.out.println(operation);
+			return operation;
+		}
+		else if(string.contains("minus"))
+		{
+			removing= array[4].replace("?", "");
+			//Converting from string to int
+			n1 = Integer.parseInt(array[2]);
+			n2 = Integer.parseInt(removing);
+			
+			operation=(n1)-(n2);
+			System.out.println(operation);
+			return operation;
+		}
+		else if(string.contains("multiplied"))
+		{
+			removing= array[5].replace("?", "");
+			//Converting from string to int
+			n1 = Integer.parseInt(array[2]);
+			n2 = Integer.parseInt(removing);
+			
+			operation=(n1)*(n2);
+			System.out.println(operation);
+			return operation;
+		}
+		else if(string.contains("divided"))
+		{
+			removing= array[5].replace("?", "");
+			//Converting from string to int
+			n1 = Integer.parseInt(array[2]);
+			n2 = Integer.parseInt(removing);
+			
+			operation=(n1)/(n2);
+			System.out.println(operation);
+			return operation;
+		}
+		else {
+			System.out.println("Operation not identified");
+		}
 		
 		
 		
