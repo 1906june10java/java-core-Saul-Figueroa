@@ -398,8 +398,32 @@ public class EvaluationService {
 	 * @return
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		long number =l;
+		List<Long> primerFactor = new ArrayList<>();
+		
+		if (number == 1) {
+			System.out.println("1 is not prime number");
+			return null;
+		}
+		else if(number == 2)
+		{
+			primerFactor.add(number);
+			System.out.println(number);
+			return primerFactor;
+		}
+		else {
+			for (long i = 2; i <= number; i++) {
+				while (number % i == 0) {
+				System.out.println(number);
+				System.out.println(i+" ");
+				primerFactor.add(i);
+				number = number/i;				
+				}
+			}
+		}
+		
+		return primerFactor;
 	}
 
 
