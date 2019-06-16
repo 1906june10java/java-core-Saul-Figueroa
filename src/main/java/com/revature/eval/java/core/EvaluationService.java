@@ -361,30 +361,28 @@ public class EvaluationService {
 			}
 				*/
 		
-	    List<Integer> listOfDigits = new ArrayList<Integer>();
-
-	    // to find digit and putting in list
-	    while (input > 0) {
-	    	 
-	    	System.out.println("actual number "+input % 10);
-	        listOfDigits.add(input % 10);
-	        input = input / 10;
-	    }
-
-	    System.out.println(listOfDigits	);
-	    int sum = 0;
-	    for (Integer integer : listOfDigits) 
-	        //sum += (Long) Math.round(Math.pow(integer, listOfDigits.size()));
-	    	sum += Math.pow(integer, listOfDigits.size());
-	    
-	    if (sum == input) {
-			return true;
-		} else {
-			return false;
-		}
 		
-	    
-		//return false;
+					int n = input;
+			List<Integer> listOfDigits = new ArrayList<Integer>();
+			
+			// to find digit and putting in list
+			while (input > 0) {
+				 
+				System.out.println("actual number "+input % 10);
+			    listOfDigits.add(input % 10);
+			    input = input / 10;
+			}
+			
+			System.out.println(listOfDigits	);
+			Long sum = 0L;
+			for (Integer integer : listOfDigits) 
+			    //sum += (Long) Math.round(Math.pow(integer, listOfDigits.size()));
+				sum += (Long) Math.round(Math.pow(integer, listOfDigits.size()));
+			
+	
+			return sum.intValue() == n ? true : false;
+			
+					//return false;
 		
 						
 	}
